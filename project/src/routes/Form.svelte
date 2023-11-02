@@ -16,7 +16,7 @@
   }
 </script>
 
-<form>
+<form action="success" method="get">
   <label for="email-form">
     <div>Email address</div>
 
@@ -30,6 +30,7 @@
     class={inputClass}
     bind:value={email}
     placeholder="email@company.com"
+    name="email"
     required
   />
   <button type="submit">Subscribe to monthly newsletter</button>

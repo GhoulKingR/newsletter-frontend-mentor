@@ -42,6 +42,7 @@
       background-color: white;
       display: flex;
       border-radius: 30px;
+      box-shadow: 0px 20px 50px 30px hsl(234, 29%, 20%);
     }
 
     .right-bg {
