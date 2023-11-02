@@ -1,6 +1,37 @@
+<script>
+  let email = "";
+  $: validEmail = ValidateEmail(email);
+  $: inputClass = validEmail ? "" : "invalid-input";
+
+  /**
+   * @param {string} input
+   */
+  function ValidateEmail(input) {
+    var validRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (input.length === 0) return true;
+    else if (email.match(validRegex)) return true;
+    else return false;
+  }
+</script>
+
 <form>
-  <label for="email-form">Email address</label>
-  <input type="text" id="email-form" placeholder="email@company.com" required />
+  <label for="email-form">
+    <div>Email address</div>
+
+    {#if !validEmail}
+      <div class="invalid">Valid email required</div>
+    {/if}
+  </label>
+  <input
+    type="email"
+    id="email-form"
+    class={inputClass}
+    bind:value={email}
+    placeholder="email@company.com"
+    required
+  />
   <button type="submit">Subscribe to monthly newsletter</button>
 </form>
 
@@ -16,6 +47,9 @@
     font-size: x-small;
     display: block;
     font-weight: 700;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
   }
 
   input {
@@ -29,6 +63,16 @@
     font-size: small;
     border-radius: 7px;
     cursor: pointer;
+  }
+
+  .invalid {
+    color: hsl(4, 100%, 67%);
+  }
+
+  .invalid-input {
+    background-color: hsla(4, 100%, 67%, 0.3);
+    border: 1px solid hsl(4, 100%, 67%) !important;
+    color: hsl(4, 100%, 67%);
   }
 
   button {
