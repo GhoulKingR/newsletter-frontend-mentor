@@ -16,13 +16,15 @@
 
 <style>
   div {
-    color: hsl(235, 18%, 26%);
+    color: hsl(234, 29%, 20%);
     font-family: Roboto !important;
   }
 
   h1 {
     padding: 30px;
+    padding-bottom: 20px;
     font-weight: 700;
+    font-size: 40px;
   }
 
   p {
